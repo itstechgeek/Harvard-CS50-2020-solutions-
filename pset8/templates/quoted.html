@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Stock Quote
+{% endblock %}
+
+{% block main %}
+    <div class="jumbotron jumbotron-fluid quote">
+        <div class="container">
+            <h2 class="text-monospace">{{stock_info["name"]}}</h1>
+            <p class="font-weight-normal lead display-4">{{usd(stock_info["price"])}}</p>
+         </div>
+    </div>
+{% endblock %}
