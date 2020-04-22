@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+            <tr scope="col">
+                <th scope="row">Stocks Owned</th>
+                <th scope="row">Number of Shares</th>
+                <th scope="row">Current Price</th>
+                <th scope="row">Total value</th>
+                <th scope="row"></th>
+            </tr>
+        </thead>
+        <tbody>
+               {% for user_stock in user_stocks %}
+                <tr>
+                    <th class="font-weight-light">{{user_stock["symbol"]}}</th>
+                    <th class="font-weight-light">{{user_stock["number_of_shares"]}}</th>
+                    <th class="font-weight-light">{{user_stock["current_price"]}}</th>
+                    <th class="font-weight-light">{{user_stock["total_value"]}}</th>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="summaries">
+        <div class="cash-balance">Total Stock Value : <span>{{sum_stocks}}</span></div>
+        <div class="total-value">Net Value : <span>{{net_value}}</span></div>
+    </div>
+{% endblock %}

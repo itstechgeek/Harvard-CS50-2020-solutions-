@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+            <tr scope="col">
+                <th scope="row">Stock Symbol</th>
+                <th scope="row">Price</th>
+                <th scope="row">Bought / Sold</th>
+                <th scope="row">Number of Shares</th>
+                <th scope="row">Date and Time </th>
+            </tr>
+        </thead>
+        <tbody>
+               {% for row in rows %}
+                <tr>
+                    <th class="font-weight-light">{{row["symbol"]}}</th>
+                    <th class="font-weight-light">{{row["price"]}}</th>
+                    <th class="font-weight-light">{{row["buy_or_sell"]}}</th>
+                    <th class="font-weight-light">{{row["number_of_shares"]}}</th>
+                    <th class="font-weight-light">{{row["datetime"]}}</th>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
