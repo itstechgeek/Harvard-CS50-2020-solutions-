@@ -1,45 +1,27 @@
-#include <stdio.h>
-#include <cs50.h>
+#include<stdio.h>
+#include<cs50.h>
 
-/**
- * Example:
- *
- * height = 4
- * width = height + 1
- *
- * ···## l1 3s 2h
- * ··### l2 2s 3h
- * ·#### l3 1s 4h
- * ##### l4 0s 5h
- */
-
-void repeat(char c, int times)
+int main(void)
 {
-    while (--times >= 0)
+    int n;
+    n = get_int("Height: ");
+    while (n > 8 || n < 1)
     {
-        printf("%c", c);
+        n = get_int("Height: ");
     }
-}
-
-int main()
-{
-    int height, width;
-
-    do
+    for (int i = 0; i < n; i++)
     {
-        height = get_int("Height: ");
-        width = height + 1;
-    }
-    while (height < 0 || height > 23);
-
-    for (int i = 1; i <= height; i++)
-    {
-        int num_hashes = i + 1;
-        int num_spaces = width - num_hashes;
-
-        repeat(' ', num_spaces);
-        repeat('#', num_hashes);
-
+        for (int j = 0; j < n ; j++)
+        {
+            if ((j + i + 1) >= n)
+            {
+                printf("#");
+            }
+            else
+            {
+                printf(" ");
+            }
+        }
         printf("\n");
     }
 }
